@@ -1,1 +1,142 @@
+//Program Logic.
+//bmi calcuation.
+package employee.login;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.mysql.jdbc.Statement;
+@WebServlet(description = "first page", urlPatterns = { "/bmicalc" })
+public class bmicalc extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	 public static String name,pass;
+	 static String[] tempname=new String[20];
+	 static String[] temppass=new String[20];
+	    public static String host="jdbc:mysql://localhost/login";
+		static String username="root";
+		static String password="";
+		String site1 = new String("http://localhost:8080/Employeelogin/view2.jsp");
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+		 String height1=request.getParameter("htft");
+		String height2=request.getParameter("inch");
+		
+    String weight=request.getParameter("weight");
+    
+   double weigh = Double.parseDouble(weight);
+   double he1 = Double.parseDouble(height1);
+   double he2 = Double.parseDouble(height2);
+   System.out.println(weigh);
+   double inches=((he1*12)+he2);
+   double bmi=((weigh*703)/(inches*inches));
+  /*Underweight: Your BMI is less than 18.5
+
+Healthy weight: Your BMI is 18.5 to 24.9
+
+Overweight: Your BMI is 25 to 29.9
+
+Obese: Your BMI is 30 or higher */
+   
+   if(bmi<18.5)
+   {
+   out.print("Your Weight is"+weigh +"<br>" +"You are under weight");
+   out.println("Your height is:" +he1 +"feet" +he2 +"Inches" +"<br>");
+   out.println("Your BMI level is: " +bmi +"<br>");
+   out.println("<img src='http://i00.i.aliimg.com/photo/v1/106769514/WEIGHT_GAIN.jpg' alt='bodybuildadd' height='20' width='20'>");
+   }
+   if((bmi>18.5)&&(bmi<24.9))
+   {
+   out.print("Your Weight is"+weigh +"<br>" +"You are Healthy weight");
+   out.println("Your height is:" +he1 +"feet" +he2 +"Inches" +"<br>");
+   out.println("Your BMI level is: " +bmi +"<br>");
+   out.println("Maintain your health" +"<br>");
+   out.println("<img src='http://i00.i.aliimg.com/photo/v1/106769514/WEIGHT_GAIN.jpg' alt='bodybuildadd' height='100' width='100'>");
+   }
+   if((bmi>24.9)&&(bmi<29.9))
+   {
+   out.print("Your Weight is"+weigh +"<br>" +"You are slightly missing healthy weight");
+   out.println("Your height is:" +he1 +"feet" +he2 +"Inches" +"<br>");
+   out.println("Your BMI level is: " +bmi +"<br>");
+   out.println("Come on you can reduce");
+   out.println("<img src='http://i00.i.aliimg.com/photo/v1/106769514/WEIGHT_GAIN.jpg' alt='bodybuildadd' height='20' width='20'>");
+   }
+   if(bmi>29.9)
+   {
+   out.print("Your Weight is"+weigh +"<br>" +"You are missing healthy weight");
+   out.println("Your height is:" +he1 +"feet" +he2 +"Inches" +"<br>");
+   out.println("Your BMI level is: " +bmi +"<br>");
+   out.println("Come on you can reduce");
+   out.println("<img src='http://i00.i.aliimg.com/photo/v1/106769514/WEIGHT_GAIN.jpg' alt='bodybuildadd' height='20' width='20'>");
+   }
+   
+/*    	
+try {
+            
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+         	Connection myConn= DriverManager.getConnection(host,username,password);
+    		System.out.println("Connection made");
+   	//---------Reg-------------------------------------------	
+    		String SQL = "SELECT * FROM login.admin";
+    		Statement stmt = (Statement) myConn.createStatement();
+    		ResultSet rs = stmt.executeQuery(SQL);
+int i=0;
+    		while (rs.next()) {
+    			
+    		   tempname[i]=rs.getString(2);
+    		   temppass[i]=rs.getString(3);
+    		   if((tempname[i].matches(name))&&temppass[i].matches(pass))
+    		   {
+  System.out.println("Login Successfull!!!");
+  //------------page redirect---------------------------------------
+  
+
+  response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY);
+  response.setHeader("Location", site1);    
+
+    		   }}
+      		rs.close();
+    		stmt.close();
+
+    }	
+    	catch(SQLException e)
+    	{ 
+       		e.printStackTrace();
+    		
+    	} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    
+
+}
+	
+*/
+	}
+}	
+
+
 
