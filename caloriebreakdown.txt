@@ -1,0 +1,10 @@
+calorie breakdown:
+To determine your basal metabolic rate (BMR), aka how many calories your body burns at rest, use the following formula:
+
+FORMULA FOR BMR:
+W = weight in kilograms	(weight (lbs)/2.2) =weight in kg
+H = height in centimeters (inches x 2.54) =height in cm
+A = age in years
+
+Men: BMR=66.47+ (13.75 x W) + (5.0 x H) - (6.75 x A)
+Women: BMR=665.09 + (9.56 x W) + (1.84 x H) - (4.67 x A)
