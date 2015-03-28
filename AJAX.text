@@ -1,0 +1,46 @@
+// Sample Ajax in Servelts JSP
+<%@page import="java.sql.*"%>
+<html>
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+ </script>
+<script type="text/javascript">
+function showData(value){ 
+$.ajax({
+    url : "ur_servlet?name="+value,
+    type : "POST",
+    async : false,
+    success : function(data) {
+//Do something with the data here
+    }
+});
+}
+</script>
+</head>
+<body>
+<form name="employee">
+<input type="text" name="name" id="name" onkeyup="showData(this.value);"><br>
+
+
+</table>
+</body>
+</html>
+
+------------------
+Servlet :
+String name = request.getParameter("name");
+String buffer="";  
+try{
+   Class.forName("com.mysql.jdbc.Driver");
+   Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root", "root");
+   Statement st=con.createStatement();
+   ResultSet rs=st.executeQuery("select * from data where name like '"+name+"%'");
+    while(rs.next())
+    {
+    buffer=buffer+"'"+rs.getString("name")+"',";
+    }
+response.getWriter().println(buffer);
+}
+ catch (Exception e) {
+    e.printStackTrace();
+ }
