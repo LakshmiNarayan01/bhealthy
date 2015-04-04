@@ -1,0 +1,75 @@
+
+<!doctype html>
+<html ng-app="GuitarApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Application</title>
+	<link rel="stylesheet" type="text/css" href="styles.css"></link>
+	<link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script>
+var nameSpace = angular.module("GuitarApp", []);
+ 
+nameSpace.controller("GuitarFunction", function GuitarFunction($scope)
+{    
+	$scope.guitarVariable = [
+{
+	"name" 	 : "Acoustic Guitar",
+	"description": "Acoustic, electro-acoustic and classical guitars, from leading brands.",
+	
+},
+{
+	"name" 	: "Electric Guitar",
+	"description": "Ever-popular solid-body guitars, to hollow-body guitars and archtops.",
+	
+},
+{
+	"name" 	: "Bass Guitar",
+	"description": "Classic Fender Bass, Precision and Jazz basses, to Gibson Thunderbirds.",
+	
+}
+    ]
+}
+);
+</script>
+</head>
+<body>
+ 
+<!-- Start of Controller -->	
+<div class="main" ng-controller="GuitarFunction">
+ <!-- SEARCH AREA -->
+<div class="search">
+	<h1>Offshore Guitar Store</h1>
+	<label>Search Guitar</lavel>
+	<input type="text" ng-model="query" >
+		<label>Sort by:
+			<select ng-model="orderGuitar">
+				<option value="name" selected>Name</option>
+				<option value="price">Price</option>
+			</select>
+		</label>
+		<br>
+		<label>
+			<input type="radio" ng-model="direction" name="direction" checked>
+			Ascending
+		</label>
+		<label>	
+			<input type="radio" ng-model="direction" name="direction" value="reverse" >
+			Descending
+		</label>
+</div>
+<!--END of SEARCH AREA -->
+ 
+<ul> 
+	<li class="itemHolder" ng-repeat="item in guitarVariable  | filter:query | orderBy:orderGuitar:direction ">
+	
+		<div>
+			<h3> {{item.name | uppercase }}</h3>
+			<p> {{item.description}}</p>
+		</div>
+	</li>
+</ul>
+</div>
+<a class="developer" href="http://blog.hfarazm.com/category/angular-js">« Goto developer's blog </a>
+</body>
+</html>
