@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Natures Charm
+Description: A two-column, fixed-width design.
+Version    : 1.0
+Released   : 20080125
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Bhealthy</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="default.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<!-- start header -->
+<div id="header">
+	<div id="logo">
+		<h1><a href="#">B'Healthy For You</a></h1>
+		<b><h2> Visits:
+		<div style="text-align:right;">
+        <script type="text/javascript" src="http://services.webestools.com/cpt_pages_views/13855-15-5.js">
+        </script>
+		</h2></b> 
+	</div>
+	<div id="menu">
+		<ul>
+			<li><a href="file:///C:/Users/Aravind/Downloads/natures_charm_261/index.html" accesskey="1" title="">Home</a></li>
+			<li class="active"><a href="file:///C:/Users/Aravind/Downloads/natures_charm_261/trackme.html" accesskey="2" title="">Track ME</a></li>
+			<li><a href="file:///C:/Users/Aravind/Downloads/natures_charm_261/foodcheck.html" accesskey="3" title="">Food Check</a></li>
+			<li><a href="file:///C:/Users/Aravind/Downloads/natures_charm_261/compare.html" accesskey="4" title="">Compare</a></li>
+			<li><a href="#" accesskey="5" title="">TBD</a></li>
+		</ul>
+	</div>
+</div>
+<!-- end header -->
+<div id="gallery">
+	<div id="top-photo">
+		<p><a href="#"><img src="http://www.vitaerobics.com/images/400-calories400.jpg" alt="" width="530" height="300" /></a></p>
+	</div>
+</div>
+
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+		<div class="post">
+			<h1 class="title">Welcome</h1>
+			
+			
+			<!--<p class="byline"><small>Posted on August 25th, 2007 by <a href="#">admin</a> | <a href="#">Edit</a></small></p> -->
+			<div class="entry">
+				<p><strong>tbd</p>
+			</div>
+		
+<script language="JavaScript">
+ 
+function bmrcalculate()
+ 
+{
+ 
+var feet = parseFloat(document.bmr.feet.value);
+ 
+var inches = parseFloat(document.bmr.inches.value);
+ 
+var weight = parseFloat(document.bmr.weight.value);
+ 
+var age = parseFloat(document.bmr.age.value);
+ 
+            kilo = document.bmr.kilo.selectedIndex;
+ 
+            kilo = document.bmr.kilo.options[kilo].value;
+ 
+            if (kilo == "k") {
+ 
+var weight = weight;
+ 
+} else {
+ 
+var weight = (weight / 2.2);
+ 
+}
+ 
+var height = (((feet * 12) + inches) * 2.54);
+ 
+            sex = document.bmr.sex.selectedIndex;
+ 
+            sex = document.bmr.sex.options[sex].value;
+ 
+            if (sex == "M") {
+ 
+                        cal = Math.round((weight*13.7516)+(height*5.0033) - (age*6.755) + 66.4730);
+ 
+            } else {
+ 
+                        cal = Math.round((weight*9.5634) + (height*1.8496) - (age*4.6756) + 655.0955);
+ 
+            }
+ 
+Get("tcal_m").innerHTML =   cal + " kcal per day";
+ 
+ tcal_r=cal-500;
+ tcal_i=cal+500;
+ 
+ tcal2=Math.round(cal/3);
+ tcal3= Math.round(cal*7);
+ tcal4= Math.round(cal*30);
+ tcal5=Math.round(cal*365);
+ 
+  Get("tcal_r").innerHTML =   tcal_r + " kcal per day";
+ Get("tcal_i").innerHTML =   tcal_i + " kcal per day";
+
+ 
+ Get("tcalpertime").innerHTML =   tcal2 + " kcal per time";
+ Get("tcalperweek").innerHTML =   tcal3 + " kcal per week";
+ Get("tcalpermonth").innerHTML =   tcal4 + " kcal per month";
+ Get("tcalperyear").innerHTML =   tcal5 + " kcal per year";
+    }
+ 
+function reset2()
+ 
+{
+ 
+cal = "";
+ 
+Get("tcal").innerHTML = cal;
+ 
+document.bmr.feet.value="";
+ 
+document.bmr.inches.value="";
+ 
+document.bmr.weight.value="";
+ 
+document.bmr.age.value="";
+ 
+document.bmr.sex.selectedIndex="";
+ 
+document.bmr.kilo.selectedIndex="";
+ 
+}
+ 
+function Get( oName, oFrame, oDoc ) {
+ 
+            if( !oDoc ) { if( oFrame ) { oDoc = oFrame.document; } else { oDoc = window.document; } }
+ 
+            if( oDoc[oName] ) { return oDoc[oName]; } if( oDoc.all && oDoc.all[oName] ) { return oDoc.all[oName]; }
+ 
+            if( oDoc.getElementById && oDoc.getElementById(oName) ) { return oDoc.getElementById(oName); }
+ 
+            for( var x = 0; x < oDoc.forms.length; x++ ) { if( oDoc.forms[x][oName] ) { return oDoc.forms[x][oName]; } }
+ 
+            for( var x = 0; x < oDoc.anchors.length; x++ ) { if( oDoc.anchors[x].name == oName ) { return oDoc.anchors[x]; } }
+ 
+            for( var x = 0; document.layers && x < oDoc.layers.length; x++ ) {
+ 
+                        var theOb = Get( oName, null, oDoc.layers[x].document ); if( theOb ) { return theOb; } }
+ 
+            if( !oFrame && window[oName] ) { return window[oName]; } if( oFrame && oFrame[oName] ) { return oFrame[oName]; }
+ 
+            for( var x = 0; oFrame && oFrame.frames && x < oFrame.frames.length; x++ ) {
+ 
+                        var theOb = Get( oName, oFrame.frames[x], oFrame.frames[x].document ); if( theOb ) { return theOb; } }
+ 
+            return null;
+}
+ 
+</script>
+<div class="brick-calculator">
+ 
+<h3 class="dpg-h3">BMR CALCULATOR</h3>
+
+<div class="calc-center"> 
+<form name="bmr">
+<div style="color:#000000;"></div>
+ 
+<div class="brick-input-labels" style="top:90px;">
+Enter Your Height:
+</div>
+ 
+<div class="brick-input" style="top: 90px;">
+<input name="feet" size="5"  type="text"> ft <input name="inches" size="5"  type="text"> in
+</div>
+ 
+<div class="brick-input-labels" style="top:120px;">
+Enter Your Weight:
+</div>
+ <div class="brick-input" style="top: 120px;">
+<input name="weight" size="5"  type="text"> <select name="kilo" size="1"><option selected value="p">&nbsp;pounds</option><option value="k">&nbsp;kilograms&nbsp;</option></select>
+</div>
+
+<div class="brick-input-labels" style="top:150px;">
+Enter Your Age:
+</div>
+  
+<div class="brick-input" style="top: 150px;">
+<input name="age" size="5"  type="text">
+</div>
+
+<div class="brick-input-labels" style="top:180px;">
+Enter Your Gender:
+</div>
+ <div class="brick-input" style="top: 180px;">
+<select name="sex" size="1"><option selected value="M">&nbsp;Male</option><option value="F">&nbsp;Female&nbsp;</option></select>
+</div>
+ 
+<div class="brick-input" style="top: 210px;">
+<input name="button1" value="Calculate" onclick="bmrcalculate()" type="button"> <input name="button2" value="Reset" onclick="reset2()" type="button">
+</div>
+ 
+<div class="brick-answer-labels2">
+<strong>Results:</strong><br />
+</div><br />
+ To Maintain Weight: <b><div class="brick-input" id="tcal_m" style="top: 250px;"></div></b>
+ <br>
+To Reduce Weight: <b> <div class="brick-input" id="tcal_r" style="top: 250px;"></div></b>
+<br>
+To Improve Weight: <b> <div class="brick-input" id="tcal_i" style="top: 250px;"></div> </b>
+
+
+<br> 
+
+Calories per time(Breakfast / Lunch / Dinner): <b> <div class="brick-input" id="tcalpertime" style="top: 250px;"></div> </b>
+<br>
+<!--
+<div class="brick-input" id="tcalperweek" style="top: 250px;"></div>
+
+<br>
+<div class="brick-input" id="tcalpermonth" style="top: 250px;"></div>
+<br>
+<div class="brick-input" id="tcalperyear" style="top: 250px;"></div>
+-->
+</form>
+</div>
+</div>
+
+			<!-- <p class="meta"><a href="#" class="more">Read More</a> &nbsp;&nbsp;&nbsp; <a href="#" class="comments">Comments (33)</a></p> -->
+		</div>
+		<div class="post">
+			<h2 class="title"></h2>
+			<!-- <p class="byline"><small>Posted on August 25th, 2007 by <a href="#">admin</a> | <a href="#">Edit</a></small></p> -->
+			<div class="entry">
+				
+				<p></p>
+			</div>
+			<p class="meta"> <!-- <a href="#" class="more">Read More</a> &nbsp;&nbsp;&nbsp; <a href="#" class="comments">Comments (33)</a></p> -->
+		</div>
+	</div>
+	<!-- end content -->
+	<!-- start sidebar -->
+	<div id="sidebar">
+		<ul>
+			<li>
+				<h2>Categories</h2>
+				<ul>
+				</ul>
+			</li>
+			<li>
+			
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+
+
+<div ng-app="myApp" ng-controller="costCtrl">
+
+Weight:<br> <input type="number" ng-model="quantity">
+<br>
+Height in Feet: <input type="number" ng-model="price">
+<br>
+Height in Inch: <input type="number" ng-model="price2">
+<br>
+<p>Your BMI = {{ (quantity* 703) / (((price*12)+(price2))*((price*12)+(price2)))}}</p>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('costCtrl', function($scope) {
+    $scope.quantity=1;
+    $scope.price=1;
+$scope.price2=1;
+});
+</script></li>
+		</ul>
+	</div>
+	<!-- end sidebar -->
+</div>
+<div style="clear: both; height: 30px">&nbsp;</div>
+<!-- end page -->
+<div id="footer">
+	<p>&copy;2015 All Rights Reserved. &nbsp;&bull;&nbsp; Designed by Lakshmi Narayan</a></p>
+</div>
+<div align=center>GITHUB PAGE:<a href='https://github.com/LakshmiNarayan01/bhealthy'>website Code Samples</a></div></body>
+</html>
