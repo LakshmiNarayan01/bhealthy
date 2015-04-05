@@ -44,11 +44,20 @@ var height = (((feet * 12) + inches) * 2.54);
  
             }
  
-Get("tcal").innerHTML =   cal + " kcal per day";
+Get("tcal_m").innerHTML =   cal + " kcal per day";
+ 
+ tcal_r=cal-500;
+ tcal_i=cal+500;
+ 
  tcal2=Math.round(cal/3);
  tcal3= Math.round(cal*7);
  tcal4= Math.round(cal*30);
  tcal5=Math.round(cal*365);
+ 
+  Get("tcal_r").innerHTML =   tcal_r + " kcal per day";
+ Get("tcal_i").innerHTML =   tcal_i + " kcal per day";
+
+ 
  Get("tcalpertime").innerHTML =   tcal2 + " kcal per time";
  Get("tcalperweek").innerHTML =   tcal3 + " kcal per week";
  Get("tcalpermonth").innerHTML =   tcal4 + " kcal per month";
@@ -109,7 +118,7 @@ function Get( oName, oFrame, oDoc ) {
 
 <div class="calc-center"> 
 <form name="bmr">
-<div style="color:#000000;">Basal Metabolic Rate is calculated by the Harris-Benedict equation (created in 1919).</div>
+<div style="color:#000000;"></div>
  
 <div class="brick-input-labels" style="top:90px;">
 Enter Your Height:
@@ -148,19 +157,25 @@ Enter Your Gender:
 <div class="brick-answer-labels2">
 <strong>Results:</strong><br />
 </div><br />
- 
-<div class="brick-input" id="tcal" style="top: 250px;"></div>
+ To Maintain Weight: <b><div class="brick-input" id="tcal_m" style="top: 250px;"></div></b>
+ <br>
+To Reduce Weight: <b> <div class="brick-input" id="tcal_r" style="top: 250px;"></div></b>
+<br>
+To Improve Weight: <b> <div class="brick-input" id="tcal_i" style="top: 250px;"></div> </b>
+
+
 <br> 
 
-<div class="brick-input" id="tcalpertime" style="top: 250px;"></div>
+Calories per time(Breakfast / Lunch / Dinner): <b> <div class="brick-input" id="tcalpertime" style="top: 250px;"></div> </b>
 <br>
+<!--
 <div class="brick-input" id="tcalperweek" style="top: 250px;"></div>
 
 <br>
 <div class="brick-input" id="tcalpermonth" style="top: 250px;"></div>
 <br>
 <div class="brick-input" id="tcalperyear" style="top: 250px;"></div>
-
+-->
 </form>
 </div>
 </div>
