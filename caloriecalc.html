@@ -1,0 +1,170 @@
+<html>
+<head>
+<script language="JavaScript">
+ 
+function bmrcalculate()
+ 
+{
+ 
+var feet = parseFloat(document.bmr.feet.value);
+ 
+var inches = parseFloat(document.bmr.inches.value);
+ 
+var weight = parseFloat(document.bmr.weight.value);
+ 
+var age = parseFloat(document.bmr.age.value);
+ 
+            kilo = document.bmr.kilo.selectedIndex;
+ 
+            kilo = document.bmr.kilo.options[kilo].value;
+ 
+            if (kilo == "k") {
+ 
+var weight = weight;
+ 
+} else {
+ 
+var weight = (weight / 2.2);
+ 
+}
+ 
+var height = (((feet * 12) + inches) * 2.54);
+ 
+            sex = document.bmr.sex.selectedIndex;
+ 
+            sex = document.bmr.sex.options[sex].value;
+ 
+            if (sex == "M") {
+ 
+                        cal = Math.round((weight*13.7516)+(height*5.0033) - (age*6.755) + 66.4730);
+ 
+            } else {
+ 
+                        cal = Math.round((weight*9.5634) + (height*1.8496) - (age*4.6756) + 655.0955);
+ 
+            }
+ 
+Get("tcal").innerHTML =   cal + " kcal per day";
+ tcal2=Math.round(cal/3);
+ tcal3= Math.round(cal*7);
+ tcal4= Math.round(cal*30);
+ tcal5=Math.round(cal*365);
+ Get("tcalpertime").innerHTML =   tcal2 + " kcal per time";
+ Get("tcalperweek").innerHTML =   tcal3 + " kcal per week";
+ Get("tcalpermonth").innerHTML =   tcal4 + " kcal per month";
+ Get("tcalperyear").innerHTML =   tcal5 + " kcal per year";
+    }
+ 
+function reset2()
+ 
+{
+ 
+cal = "";
+ 
+Get("tcal").innerHTML = cal;
+ 
+document.bmr.feet.value="";
+ 
+document.bmr.inches.value="";
+ 
+document.bmr.weight.value="";
+ 
+document.bmr.age.value="";
+ 
+document.bmr.sex.selectedIndex="";
+ 
+document.bmr.kilo.selectedIndex="";
+ 
+}
+ 
+function Get( oName, oFrame, oDoc ) {
+ 
+            if( !oDoc ) { if( oFrame ) { oDoc = oFrame.document; } else { oDoc = window.document; } }
+ 
+            if( oDoc[oName] ) { return oDoc[oName]; } if( oDoc.all && oDoc.all[oName] ) { return oDoc.all[oName]; }
+ 
+            if( oDoc.getElementById && oDoc.getElementById(oName) ) { return oDoc.getElementById(oName); }
+ 
+            for( var x = 0; x < oDoc.forms.length; x++ ) { if( oDoc.forms[x][oName] ) { return oDoc.forms[x][oName]; } }
+ 
+            for( var x = 0; x < oDoc.anchors.length; x++ ) { if( oDoc.anchors[x].name == oName ) { return oDoc.anchors[x]; } }
+ 
+            for( var x = 0; document.layers && x < oDoc.layers.length; x++ ) {
+ 
+                        var theOb = Get( oName, null, oDoc.layers[x].document ); if( theOb ) { return theOb; } }
+ 
+            if( !oFrame && window[oName] ) { return window[oName]; } if( oFrame && oFrame[oName] ) { return oFrame[oName]; }
+ 
+            for( var x = 0; oFrame && oFrame.frames && x < oFrame.frames.length; x++ ) {
+ 
+                        var theOb = Get( oName, oFrame.frames[x], oFrame.frames[x].document ); if( theOb ) { return theOb; } }
+ 
+            return null;
+}
+ 
+</script></head>
+<div class="brick-calculator">
+ 
+<h3 class="dpg-h3">BMR CALCULATOR</h3>
+
+<div class="calc-center"> 
+<form name="bmr">
+<div style="color:#000000;">Basal Metabolic Rate is calculated by the Harris-Benedict equation (created in 1919).</div>
+ 
+<div class="brick-input-labels" style="top:90px;">
+Enter Your Height:
+</div>
+ 
+<div class="brick-input" style="top: 90px;">
+<input name="feet" size="5"  type="text"> ft <input name="inches" size="5"  type="text"> in
+</div>
+ 
+<div class="brick-input-labels" style="top:120px;">
+Enter Your Weight:
+</div>
+ <div class="brick-input" style="top: 120px;">
+<input name="weight" size="5"  type="text"> <select name="kilo" size="1"><option selected value="p">&nbsp;pounds</option><option value="k">&nbsp;kilograms&nbsp;</option></select>
+</div>
+
+<div class="brick-input-labels" style="top:150px;">
+Enter Your Age:
+</div>
+  
+<div class="brick-input" style="top: 150px;">
+<input name="age" size="5"  type="text">
+</div>
+
+<div class="brick-input-labels" style="top:180px;">
+Enter Your Gender:
+</div>
+ <div class="brick-input" style="top: 180px;">
+<select name="sex" size="1"><option selected value="M">&nbsp;Male</option><option value="F">&nbsp;Female&nbsp;</option></select>
+</div>
+ 
+<div class="brick-input" style="top: 210px;">
+<input name="button1" value="Calculate" onclick="bmrcalculate()" type="button"> <input name="button2" value="Reset" onclick="reset2()" type="button">
+</div>
+ 
+<div class="brick-answer-labels2">
+<strong>Results:</strong><br />
+</div><br />
+ 
+<div class="brick-input" id="tcal" style="top: 250px;"></div>
+<br> 
+
+<div class="brick-input" id="tcalpertime" style="top: 250px;"></div>
+<br>
+<div class="brick-input" id="tcalperweek" style="top: 250px;"></div>
+
+<br>
+<div class="brick-input" id="tcalpermonth" style="top: 250px;"></div>
+<br>
+<div class="brick-input" id="tcalperyear" style="top: 250px;"></div>
+
+</form>
+</div>
+</div>
+</head>
+</html>
+
+
